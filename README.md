@@ -6,7 +6,7 @@ Clean git theme with homey feel and git-centric features.
 
 ![simple theme screenshot](screenshot.png)
 
-#### Prompt structure:
+#### Prompt structure
 
 * Left-hand side:
 	* user@host:
@@ -18,6 +18,6 @@ Clean git theme with homey feel and git-centric features.
 	* last error code (if applicable)
 	* timestamp
 
-#### Credits:
+#### Credits
 
 Forked from [godfather](https://github.com/oh-my-fish/theme-godfather) theme
