@@ -1,4 +1,4 @@
-# fish theme: godfather
+# fish theme: simple
 
 function fish_right_prompt
   set -l last_status $status
@@ -6,13 +6,13 @@ function fish_right_prompt
   set -l red (set_color -o red)
   set -l normal (set_color normal)
 
-  # print last exit code if nonzero:
+  # print last exit code if nonzero
   if test $last_status -ne 0
     set_color red
-    printf '%d' $last_status
+    echo -n -s " -$last_status-"
     set_color normal
   end
 
-  # display the timestamp on the utmost right.
+  # display the timestamp on the utmost right
   echo -n -s $normal ' [' (date +%H:%M:%S) ']'
 end

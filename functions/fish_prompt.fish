@@ -44,6 +44,7 @@ function _short_cwd
 end
 
 function fish_prompt
+  set -l last_status $status
   set fish_greeting
   set -l cyan (set_color -o cyan)
   set -l yellow (set_color -o yellow)
@@ -74,6 +75,11 @@ function fish_prompt
   end
 
   # terminate with a nice prompt char:
-  echo -n -s ' » ' $normal
+  if test $last_status -ne 0
+    echo -n -s $red
+  else
+    echo -n -s $normal
+  end
+  echo -n -s " 〉" $normal
 
 end
