@@ -1,4 +1,4 @@
-# fish theme: goddy
+# fish theme: simple
 
 function _git_branch_name
   echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
@@ -18,6 +18,31 @@ function _user_host
   echo -n (hostname|cut -d . -f 1)ˇ$USER (set color normal)
 end
 
+function _short_cwd
+  set -l path_splits (string split / (prompt_pwd))
+
+  set -l final_path ""
+  set -l i 0
+
+  for d in (string split / (prompt_pwd))
+    set -l d_char (echo $d | grep -oE "^[^a-zA-Z0-9~]*[a-zA-Z0-9~]{1}")
+
+    if test $i = (math (string join \n $path_splits | wc -l) - 1) -a "$d" != ""
+      set -l d_char (basename (prompt_pwd))
+    end
+
+    if test $i = 0
+      set -l final_path "$d_char"
+    else
+      set -l final_path "$final_path/$d_char"
+    end
+
+    set -l i (math $i + 1)
+  end
+
+  echo $final_path
+end
+
 function fish_prompt
   set fish_greeting
   set -l cyan (set_color -o cyan)
@@ -27,7 +52,7 @@ function fish_prompt
   set -l green (set_color -o green)
   set -l normal (set_color normal)
 
-  set -l cwd $cyan(basename (prompt_pwd))
+  set -l cwd $cyan(_short_cwd)
 
   # output the prompt, left to right:
   # display 'user@host:'
