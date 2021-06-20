@@ -2,6 +2,10 @@
 
 Clean git theme with homey feel and git-centric features.
 
+#### Screenshot
+
+![simple theme screenshot](screenshot.png)
+
 #### Prompt structure:
 
 * Left-hand side:
