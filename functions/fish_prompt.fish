@@ -8,16 +8,6 @@ function _is_git_dirty
     echo (command git status -s --ignore-submodules=dirty 2> /dev/null)
 end
 
-# change color depending on the user.
-function _user_host
-    if [ (id -u) = 0 ]
-        echo -n (set_color -o red)
-    else
-        echo -n (set_color -o blue)
-    end
-    echo -n (hostname|cut -d . -f 1)$USER (set color normal)
-end
-
 function _short_cwd
     set path_splits (string split / (prompt_pwd))
 
