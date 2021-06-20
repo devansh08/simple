@@ -1,22 +1,19 @@
-## godfather fish theme
+## simple fish theme
 
 Clean git theme with homey feel and git-centric features.
-
-![screenshot](http://i.imgur.com/mh7a39d.png)
 
 #### Prompt structure:
 
 * Left-hand side:
 	* user@host:
-	* truncated cwd (just the current folder name)
+	* short name cwd (first letter of each folder)
 	* git branch with state info (if applicable)
 
 * Right-hand side:
+	* number of bg processes running (if any)
 	* last error code (if applicable)
-	* [timestamp]
+	* timestamp
 
 #### Credits:
 
-Colors and git functions taken from [amio](https://github.com/amio)'s
-[edan](https://github.com/bpinto/oh-my-fish/tree/master/themes/edan) theme.
-
+Forked from [godfather](https://github.com/oh-my-fish/theme-godfather) theme
