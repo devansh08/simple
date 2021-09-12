@@ -1,16 +1,16 @@
 # fish theme: simple
 
 function _is_head_detached
-	command git symbolic-ref -q HEAD > /dev/null 2>&1
-	echo $status
+    command git symbolic-ref -q HEAD > /dev/null 2>&1
+    echo $status
 end
 
 function _git_branch_name
-	if test (_is_head_detached) = 0
-	    echo (command git symbolic-ref HEAD 2> /dev/null | sed -e "s|^refs/heads/||")
-	else
-		echo "detached at "(command git rev-parse --short HEAD)
-	end
+    if test (_is_head_detached) = 0
+        echo (command git symbolic-ref HEAD 2> /dev/null | sed -e "s|^refs/heads/||")
+    else
+        echo "detached at "(command git rev-parse --short HEAD 2> /dev/null)
+    end
 end
 
 function _is_git_dirty
